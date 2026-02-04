@@ -73,21 +73,7 @@ pip install -r requirements.txt
    Execute `02_Validacao/1.1_Validacao_Entra_Sai.ipynb`
 
 ## 📖 Documentação
-
-- **Guia de uso:** `Documentacao/Guia_de_Uso.md`
-- **Índice:** `Documentacao/Indice.md`
-
-## 🔒 Dados sensíveis
-
-As planilhas contêm dados pessoais. Mantenha backups e evite publicar arquivos de dados no repositório.
-
-## 🤝 Contribuição
-
-Contribuições são bem-vindas. Abra uma issue descrevendo a proposta antes de enviar PR.
-
-## 📄 Licença
-
-Este projeto está licenciado sob a licença MIT. Veja `LICENSE`.
+- **Guia de uso:** Guia_de_Uso.md`
 
 ---
 
