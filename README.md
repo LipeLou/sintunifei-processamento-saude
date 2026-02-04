@@ -1,74 +1,95 @@
 # 📊 Sistema de Processamento de Planilhas de Plano de Saúde
 
-Sistema organizado e documentado para processamento mensal de planilhas de mensalidades e consultas do plano de saúde, desenvolvido para o SINTUNIFEI.
+[![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Pandas](https://img.shields.io/badge/Pandas-1.3%2B-150458?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![Licença: MIT](https://img.shields.io/badge/Licen%C3%A7a-MIT-green.svg)](LICENSE)
+
+Sistema profissional para processamento mensal de planilhas de mensalidades e consultas de plano de saúde, com fluxo consistente e validações de integridade, desenvolvido para o SINTUNIFEI.
 
 ## 🎯 Objetivo
 
-Este projeto automatiza a atualização mensal das planilhas de mensalidades do plano de saúde, realizando:
-- Atualização automática de valores de mensalidades
-- Validação de integridade dos dados
-- Identificação de discrepâncias entre planilhas
-- Verificação cruzada com relatórios da operadora
+Automatizar a atualização mensal das planilhas com:
+- Atualização de valores de mensalidades
+- Consolidação de consultas/coparticipação
+- Validações de integridade e consistência
+- Relatórios de discrepâncias e conferência
 
-## 📁 Estrutura do Projeto
+## ✨ Principais funcionalidades
+
+- Geração de planilha mensal atualizada (`dados_atualizados.xlsx`)
+- Consolidação de consultas em planilha final (`dados_com_consultas.xlsx`)
+- Validação de nulos, duplicatas e divergências
+- Comparação de entradas/saídas entre meses
+
+## 📁 Estrutura do projeto
 
 ```
-criaçao-planilha/
-├── 01_Processamento/          # Scripts principais de processamento
-│   ├── 1_Gerar_Nova_Planilha.ipynb  # Mensalidades
-│   └── 2_Processar_Consultas.ipynb  # Consultas/Coparticipação
-├── 02_Validacao/               # Scripts de validação e verificação
-│   ├── 1_Validacao_Pos_Geracao.ipynb   # Validação Mensalidades
-│   ├── 2_Verificacao_Cruzada_Operadora.ipynb # DIRF vs Operadora
-│   └── 3_Validacao_Consultas.ipynb     # Validação Consultas
-├── 03_Outros/                  # Arquivos legados e auxiliares
-│   ├── consultas.ipynb (original)
-│   └── ... (outros notebooks)
-├── Documentacao/               # Documentação completa
-│   └── Guia_de_Uso.md
-└── README.md                   # Este arquivo
+.
+├── 01_Processamento/                # Notebooks principais de processamento
+│   ├── 1_Gerar_Nova_Planilha.ipynb   # Mensalidades
+│   └── 2_Processar_Consultas.ipynb   # Consultas/Coparticipação
+├── 02_Validacao/                     # Notebooks de validação e conferência
+│   ├── 1_Validacao_Pos_Geracao.ipynb # Validação de mensalidades
+│   ├── 1.1_Validacao_Entra_Sai.ipynb # Entradas/saídas entre meses
+│   └── 2_Validacao_Consultas.ipynb   # Validação de consultas
+├── Documentacao/                     # Documentação completa
+│   ├── Guia_de_Uso.md
+│   └── Indice.md
+├── requirements.txt
+└── README.md
 ```
 
-## 🚀 Início Rápido
+## ✅ Requisitos
 
-### Fluxo de Trabalho Mensal
+- Python 3.8+
+- Jupyter Notebook/Lab
+- Dependências em `requirements.txt`
 
-1. **Mensalidades** (`01_Processamento/1_Gerar_Nova_Planilha.ipynb`)
-   - Gera `dados_atualizados.xlsx` com mensalidades atualizadas.
+## 🔧 Instalação
 
-2. **Consultas** (`01_Processamento/2_Processar_Consultas.ipynb`)
-   - Lê o arquivo anterior e adiciona as consultas.
-   - Gera `dados_com_consultas.xlsx` (Final).
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
 
-3. **Validar Dados** (`02_Validacao/`)
-   - Execute `1_Validacao_Pos_Geracao.ipynb` e `3_Validacao_Consultas.ipynb`.
-   - Garante que não há duplicatas ou erros.
+## 🚀 Fluxo de trabalho mensal (rápido)
 
-## 📖 Documentação Completa
+1. **Gerar mensalidades**  
+   Execute `01_Processamento/1_Gerar_Nova_Planilha.ipynb`  
+   Resultado: `dados_atualizados.xlsx`
 
-Para instruções detalhadas, consulte o **[Guia de Uso](Documentacao/Guia_de_Uso.md)**.
+2. **Validar mensalidades**  
+   Execute `02_Validacao/1_Validacao_Pos_Geracao.ipynb`
 
-## ⚠️ Importante
+3. **Processar consultas**  
+   Execute `01_Processamento/2_Processar_Consultas.ipynb`  
+   Resultado: `dados_com_consultas.xlsx`
 
-- **Sempre verifique os caminhos dos arquivos** antes de executar os notebooks
-- **Mantenha backups** das planilhas originais antes do processamento
-- **Execute as validações** após cada geração de planilha
-- Os arquivos originais estão preservados em `03_Outros/` para referência
+4. **Validar consultas**  
+   Execute `02_Validacao/2_Validacao_Consultas.ipynb`
 
-## 🔧 Manutenção
+5. **Comparar entrada/saida**  
+   Execute `02_Validacao/1.1_Validacao_Entra_Sai.ipynb`
 
-Os notebooks foram organizados de forma modular:
-- **Processamento**: Lógica principal de atualização (não altere a menos que necessário)
-- **Validação**: Verificações que podem ser expandidas conforme necessário
-- **Outros**: Arquivos históricos e scripts auxiliares
+## 📖 Documentação
 
-## 📝 Notas
+- **Guia de uso:** `Documentacao/Guia_de_Uso.md`
+- **Índice:** `Documentacao/Indice.md`
 
-- Os notebooks foram testados e estão funcionais
-- A lógica original foi preservada integralmente
-- A organização facilita a manutenção e apresentação do projeto
+## 🔒 Dados sensíveis
+
+As planilhas contêm dados pessoais. Mantenha backups e evite publicar arquivos de dados no repositório.
+
+## 🤝 Contribuição
+
+Contribuições são bem-vindas. Abra uma issue descrevendo a proposta antes de enviar PR.
+
+## 📄 Licença
+
+Este projeto está licenciado sob a licença MIT. Veja `LICENSE`.
 
 ---
 
-**Desenvolvido para SINTUNIFEI** | Sistema de Processamento de Planilhas de Plano de Saúde
+**Desenvolvido para o SINTUNIFEI** | Sistema de Processamento de Planilhas de Plano de Saúde
 
