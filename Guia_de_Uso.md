@@ -102,18 +102,7 @@ Siga a ordem abaixo para garantir o processamento correto.
 
 ---
 
-### Passo 4: Validar Consultas
-**Arquivo:** `02_Validacao/2_Validacao_Consultas.ipynb`
-
-1. **Validação de Consultas:**
-   - Execute `2_Validacao_Consultas.ipynb`.
-   - Lê automaticamente `dados_com_consultas.xlsx`.
-   - **Crítico:** Verifica se há nomes duplicados com valor de consulta (risco de cobrança dupla).
-   - Compara totais e lista os maiores valores.
-
----
-
-### Passo 5: Comparação de Entrada/Saída
+### Passo 4: Comparação de Entrada/Saída
 **Arquivo:** `02_Validacao/1.1_Validacao_Entra_Sai.ipynb`
 
 Este notebook verifica a evolução da planilha comparando o mês atual com o mês anterior.
@@ -189,15 +178,12 @@ Este notebook verifica a evolução da planilha comparando o mês atual com o m�
    → Lê dados_atualizados.xlsx + Slip Fatura
    → Gera dados_com_consultas.xlsx (completo)
    ↓
-5. Executar: 02_Validacao/2_Validacao_Consultas.ipynb
-   → Valida consultas e valores duplicados
-   ↓
-6. Executar: 02_Validacao/1.1_Validacao_Entra_Sai.ipynb
+5. Executar: 02_Validacao/1.1_Validacao_Entra_Sai.ipynb
    → Compara entradas e saídas entre meses
    ↓
-7. Corrigir problemas identificados (se houver)
+6. Corrigir problemas identificados (se houver)
    ↓
-8. Planilha final pronta para uso
+7. Planilha final pronta para uso
 ```
 
 ## 🔍 Dicas de Troubleshooting

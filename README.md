@@ -30,8 +30,7 @@ Automatizar a atualização mensal das planilhas com:
 │   └── 2_Processar_Consultas.ipynb   # Consultas/Coparticipação
 ├── 02_Validacao/                     # Notebooks de validação e conferência
 │   ├── 1_Validacao_Pos_Geracao.ipynb # Validação de mensalidades
-│   ├── 1.1_Validacao_Entra_Sai.ipynb # Entradas/saídas entre meses
-│   └── 2_Validacao_Consultas.ipynb   # Validação de consultas
+│   └── 1.1_Validacao_Entra_Sai.ipynb # Entradas/saídas entre meses
 ├── Guia_de_Uso.md                    # Guia rápido de execução
 ├── requirements.txt
 └── README.md
@@ -64,10 +63,7 @@ pip install -r requirements.txt
    Execute `01_Processamento/2_Processar_Consultas.ipynb`  
    Resultado: `dados_com_consultas.xlsx`
 
-4. **Validar consultas**  
-   Execute `02_Validacao/2_Validacao_Consultas.ipynb`
-
-5. **Comparar entrada/saída**  
+4. **Comparar entrada/saída**  
    Execute `02_Validacao/1.1_Validacao_Entra_Sai.ipynb`
 
 ## 📖 Documentação
