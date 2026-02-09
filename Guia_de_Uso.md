@@ -53,7 +53,7 @@ Siga a ordem abaixo para garantir o processamento correto.
 
 2. **Resultado:**
 - Validações geradas
-- Planilhas geradas:
+- Planilhas geradas (somente se houver registros):
    - **novos_beneficiarios_familia_nova.xlsx**
    - **novos_beneficiarios_familia_existente.xlsx**
 
