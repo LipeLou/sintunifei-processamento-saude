@@ -32,9 +32,7 @@ Automatizar a atualização mensal das planilhas com:
 │   ├── 1_Validacao_Pos_Geracao.ipynb # Validação de mensalidades
 │   ├── 1.1_Validacao_Entra_Sai.ipynb # Entradas/saídas entre meses
 │   └── 2_Validacao_Consultas.ipynb   # Validação de consultas
-├── Documentacao/                     # Documentação completa
-│   ├── Guia_de_Uso.md
-│   └── Indice.md
+├── Guia_de_Uso.md                    # Guia rápido de execução
 ├── requirements.txt
 └── README.md
 ```
@@ -69,11 +67,11 @@ pip install -r requirements.txt
 4. **Validar consultas**  
    Execute `02_Validacao/2_Validacao_Consultas.ipynb`
 
-5. **Comparar entrada/saida**  
+5. **Comparar entrada/saída**  
    Execute `02_Validacao/1.1_Validacao_Entra_Sai.ipynb`
 
 ## 📖 Documentação
-- **Guia de uso:** Guia_de_Uso.md`
+- **Guia de uso:** `Guia_de_Uso.md`
 
 ---
 

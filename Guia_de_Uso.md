@@ -10,7 +10,6 @@ O projeto está organizado nas seguintes pastas para facilitar a manutenção e 
 
 - **`01_Processamento/`**: Contém o código principal para gerar a planilha atualizada.
 - **`02_Validacao/`**: Contém scripts para conferência de dados, busca de erros e discrepâncias.
-- **`Documentacao/`**: Manuais e guias (este arquivo).
 
 ---
 
@@ -38,6 +37,11 @@ Siga a ordem abaixo para garantir o processamento correto.
 3. **Execute:** Rode todas as células sequencialmente.
 
 4. **Resultado:** Um arquivo chamado `dados_atualizados.xlsx` será gerado na pasta raiz.
+
+**Observações importantes (Mensalidades):**
+- O sistema prioriza a identificação por **código** quando for único.
+- Se houver múltiplas linhas com o mesmo código, o preenchimento ocorre **somente** quando o nome for único.
+- Linhas com nomes duplicados são listadas para revisão.
 
 ---
 
@@ -90,7 +94,9 @@ Siga a ordem abaixo para garantir o processamento correto.
    caminho_consultas = '../Relatorio_Slip_Fatura.xls'
    ```
 
-4. **Execute:** O script extrairá os nomes e valores do relatório complexo e atualizará a coluna `CONSULTA`.
+4. **Execute:** O script contará ocorrências de **59,95** na coluna `Doc. Finan.` por beneficiário e somará para formar o total de consultas.
+   - Quando aparecer `Total Crédito`, o valor em `Contrato Financeiro` é comparado com a soma das consultas.
+   - Beneficiários com divergência são listados ao final.
 
 5. **Resultado:** Um novo arquivo `dados_com_consultas.xlsx` será gerado na pasta raiz.
 
@@ -117,6 +123,7 @@ Este notebook verifica a evolução da planilha comparando o mês atual com o m�
    - Pode ser um arquivo `dados_atualizados.xlsx` do mês passado ou a planilha DIRF antiga.
 
 2. **O que ele faz:**
+   - Normaliza nomes (remove espaços extras e ignora valores vazios).
    - Identifica **Novos Entrantes:** Pessoas que não existiam ou não tinham mensalidade e agora têm.
    - Identifica **Saídas:** Pessoas que tinham mensalidade e agora não têm (ou sumiram da planilha).
    - Gera relatórios Excel automáticos: `relatorio_entradas.xlsx` e `relatorio_saidas.xlsx` na pasta raiz.
