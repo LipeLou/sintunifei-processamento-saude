@@ -10,6 +10,7 @@ O projeto está organizado nas seguintes pastas para facilitar a manutenção e 
 
 - **`01_Processamento/`**: Contém o código principal para gerar a planilha atualizada.
 - **`02_Validacao/`**: Contém scripts para conferência de dados, busca de erros e discrepâncias.
+- **`03_0utros/`**: Contém utilitários para saneamento e preenchimento cadastral.
 
 ---
 
@@ -102,7 +103,38 @@ Siga a ordem abaixo para garantir o processamento correto.
 
 ---
 
-### Passo 4: Comparação de Entrada/Saída
+### Passo 4: Preencher CPF e Dependência (quando necessário)
+**Arquivo:** `03_0utros/Preencher_Dados.ipynb`
+
+Este notebook complementa o fluxo mensal quando existem beneficiários com `CPF` ou `DEPENDENCIA` vazios.
+
+1. **Objetivo:**
+   - Identificar nomes com `CPF` ou `DEPENDENCIA` ausentes na planilha de dados.
+   - Buscar os mesmos nomes na base de beneficiários ativos da operadora.
+   - Preencher os campos faltantes e gerar relatórios de pendência.
+
+2. **Configure:**
+   - Na célula de carregamento, informe:
+   ```python
+   caminho_dados = '../Data/dados.xlsx'
+   caminho_beneficiarios_ativos = '../Data/beneficiarios_ativos.xls'
+   mes = 'JAN 2025'
+   ```
+
+3. **Execute:** Rode as células em sequência.
+
+4. **Resultados gerados:**
+   - `beneficiarios_preenchimento.xlsx` (base de nomes encontrados na operadora)
+   - `dados_preenchidos.xlsx` (dados com `CPF`/`DEPENDENCIA` preenchidos quando possível)
+   - `nomes_nao_encontrados.xlsx` (famílias não localizadas na base da operadora)
+
+5. **Comportamento adicional do relatório de não encontrados:**
+   - Quando um membro com pendência não é encontrado, o relatório inclui toda a família (`CÓD DA FAMILIA`).
+   - O arquivo é separado com linha em branco entre famílias para facilitar leitura e formatação.
+
+---
+
+### Passo 5: Comparação de Entrada/Saída
 **Arquivo:** `02_Validacao/1.1_Validacao_Entra_Sai.ipynb`
 
 Este notebook verifica a evolução da planilha comparando o mês atual com o mês anterior.
@@ -178,12 +210,17 @@ Este notebook verifica a evolução da planilha comparando o mês atual com o m�
    → Lê dados_atualizados.xlsx + Slip Fatura
    → Gera dados_com_consultas.xlsx (completo)
    ↓
-5. Executar: 02_Validacao/1.1_Validacao_Entra_Sai.ipynb
+5. Executar: 03_0utros/Preencher_Dados.ipynb (quando houver pendências cadastrais)
+   → Gera beneficiarios_preenchimento.xlsx
+   → Gera dados_preenchidos.xlsx
+   → Gera nomes_nao_encontrados.xlsx
+   ↓
+6. Executar: 02_Validacao/1.1_Validacao_Entra_Sai.ipynb
    → Compara entradas e saídas entre meses
    ↓
-6. Corrigir problemas identificados (se houver)
+7. Corrigir problemas identificados (se houver)
    ↓
-7. Planilha final pronta para uso
+8. Planilha final pronta para uso
 ```
 
 ## 🔍 Dicas de Troubleshooting

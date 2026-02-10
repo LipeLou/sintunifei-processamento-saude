@@ -4,13 +4,14 @@
 [![Pandas](https://img.shields.io/badge/Pandas-1.3%2B-150458?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
 [![Licença: MIT](https://img.shields.io/badge/Licen%C3%A7a-MIT-green.svg)](LICENSE)
 
-Sistema profissional para processamento mensal de planilhas de mensalidades e consultas de plano de saúde, com fluxo consistente e validações de integridade, desenvolvido para o SINTUNIFEI.
+Sistema profissional para processamento mensal de planilhas de mensalidades e consultas de plano de saúde, com fluxo consistente, saneamento cadastral e validações de integridade, desenvolvido para o SINTUNIFEI.
 
 ## 🎯 Objetivo
 
 Automatizar a atualização mensal das planilhas com:
 - Atualização de valores de mensalidades
 - Consolidação de consultas/coparticipação
+- Preenchimento de CPF e dependência a partir da base de beneficiários ativos
 - Validações de integridade e consistência
 - Relatórios de discrepâncias e conferência
 
@@ -18,6 +19,9 @@ Automatizar a atualização mensal das planilhas com:
 
 - Geração de planilha mensal atualizada (`dados_atualizados.xlsx`)
 - Consolidação de consultas em planilha final (`dados_com_consultas.xlsx`)
+- Geração de base de preenchimento cadastral (`beneficiarios_preenchimento.xlsx`)
+- Preenchimento de dados faltantes (`dados_preenchidos.xlsx`)
+- Relatório de famílias não encontradas (`nomes_nao_encontrados.xlsx`)
 - Validação de nulos, duplicatas e divergências
 - Comparação de entradas/saídas entre meses
 
@@ -31,6 +35,8 @@ Automatizar a atualização mensal das planilhas com:
 ├── 02_Validacao/                     # Notebooks de validação e conferência
 │   ├── 1_Validacao_Pos_Geracao.ipynb # Validação de mensalidades
 │   └── 1.1_Validacao_Entra_Sai.ipynb # Entradas/saídas entre meses
+├── 03_0utros/                        # Utilitários complementares
+│   └── Preencher_Dados.ipynb         # Saneamento cadastral (CPF/DEPENDENCIA)
 ├── Guia_de_Uso.md                    # Guia rápido de execução
 ├── requirements.txt
 └── README.md
@@ -63,7 +69,11 @@ pip install -r requirements.txt
    Execute `01_Processamento/2_Processar_Consultas.ipynb`  
    Resultado: `dados_com_consultas.xlsx`
 
-4. **Comparar entrada/saída**  
+4. **Preencher dados cadastrais faltantes (quando necessário)**  
+   Execute `03_0utros/Preencher_Dados.ipynb`  
+   Resultados: `beneficiarios_preenchimento.xlsx`, `dados_preenchidos.xlsx` e `nomes_nao_encontrados.xlsx`
+
+5. **Comparar entrada/saída**  
    Execute `02_Validacao/1.1_Validacao_Entra_Sai.ipynb`
 
 ## 📖 Documentação
